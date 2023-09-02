@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<body>
+    <header>
+        <h1>My Profile</h1>
+    </header>
+    <main>
+        <section class="user-profile-info">
+            <h2>My Profile Information</h2>
+            <div class="user-profile-data">
+                <p>Username: <span></span></p>
+                <p>Email: <span></span></p>
+            </div>
+        </section>
+        <section class="user-pokemon-collection">
+            <h2>My Pokemon Collection</h2>
+            <div class="captured-pokemon-list">
+                <!-- Display user's saved Pokemon here -->
+                <ul>
+                    {% for pokemon in captured_pokemon %}
+                    <li>
+                        <img src="{{ pokemon.pokemon_artwork }}" alt="{{ pokemon.pokemon_name }}">
+                        {{ pokemon.pokemon_name }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a href="#">Edit Profile</a>
+        <a href="#">Logout</a>
+    </footer>
+</body>
+</html>
+
+{% endblock %}
