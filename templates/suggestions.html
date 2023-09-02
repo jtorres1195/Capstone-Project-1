@@ -3,8 +3,17 @@
 {% block content %}
 
 <div id="about">
-    <h1>Suggestions</h1>
-    <p class="headerP">If you have any suggestions on how I can make this app even better please let me know below!</p>
+<h1>Suggestions</h1>
+<p>If you have any suggestions on how I can make this app even better please let me know below!</p>
+<form method="POST" action="/submit-suggestion">
+    <div class="form-group">
+        <label for="suggestion">Your Suggestion:</label>
+        <textarea name="suggestion" id="suggestion" cols="50" rows="10" required></textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit">Submit</button>
+    </div>
+</form>
 </div>
 
 {% endblock %}

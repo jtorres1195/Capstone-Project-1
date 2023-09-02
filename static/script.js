@@ -5,11 +5,11 @@ const catchButton = document.getElementById('catch-button');
 const homeLink = document.getElementById('home-link');
 const myProfileLink = document.getElementById('my-profile-link');
 const listOfPokemonLink = document.getElementById('list-of-pokemon-link');
-// const tradeCenterLink = ;
-// const aboutLink = ;
-// const suggestionsLink = ;
+const aboutLink = getElementById('about-link');
+const suggestionsLink = getElementById('suggestions-link');
 const loginLink = document.getElementById('login-link');
 const signupLink = document.getElementById('signup-link');
+// const tradeCenterLink = getElementById('trade-center-link');
 
 homeLink.addEventListener('click', function(evt) {
     evt.preventDefault();
@@ -35,6 +35,21 @@ signupLink.addEventListener('click', function(evt) {
     evt.preventDefault();
     window.location.href = '/signup';
 });
+
+aboutLink.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    window.location.href = '/about';
+});
+
+suggestionsLink.addEventListener('click', function(evt) {
+    evt.preventDefault();
+    window.location.href = '/suggestions';
+});
+
+// tradeCenterLink.addEventListener('click', function(evt) {
+//     evt.preventDefault();
+//     window.location.href = '/trade-center';
+// });
 
 generateButton.addEventListener('click', async () => {
     console.log("Button works");

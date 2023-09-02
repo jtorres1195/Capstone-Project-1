@@ -145,5 +145,25 @@ def save_pokemon():
         return redirect('/profile')
     return redirect('/login')
 
+@app.route('/about', endpoint='custom_about')
+def about():
+    return render_template('about.html')
+
+@app.route('/suggestions', endpoint='custom_suggestions')
+def suggestions():
+    return render_template('suggestions.html')
+
+@app.route('/submit-suggestion', methods=['POST'])
+def submit_suggestion():
+    if request.method == 'POST':
+        suggestion_text = request.form.get('suggestion')
+
+        # Save the suggestion to your database or a file, or take any other desired action.
+
+        flash('Thank you for your suggestion! We appreciate your feedback.')
+        return redirect('/suggestions')
+
+    return redirect('/suggestions')
+
 if __name__ == "__main__":
     app.run(debug=True)
