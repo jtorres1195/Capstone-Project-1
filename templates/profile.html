@@ -3,6 +3,19 @@
 {% block content %}
 
 <body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-messages">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endwith %}
+
     <header>
         <h1>My Profile</h1>
     </header>
@@ -10,8 +23,7 @@
         <section class="user-profile-info">
             <h2>My Profile Information</h2>
             <div class="user-profile-data">
-                <p>Username: <span></span></p>
-                <p>Email: <span></span></p>
+                <p>Username: <span>{{ user_profile.username }}</span></p>
             </div>
         </section>
         <section class="user-pokemon-collection">

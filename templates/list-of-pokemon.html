@@ -2,12 +2,35 @@
 
 {% block content %}
 <body>
-    <h1>List of Available Pokemon</h1>
+    <header>
+        <img src="https://i.redd.it/oj0d97dt11461.jpg" alt="Cool-Squirtle" width="300">
+        <h1>List of Available Pokemon</h1>
+    </header>
     <ul>
-    {% for pokemon in available_pokemon %}
-        <li>{{ pokemon }}</li>
-    {% endfor %}
+        {% for pokemon in pokemon_data %}
+            <li>
+                <img src="{{ pokemon.sprite_url }}" alt="{{ pokemon.name }}" width="50">
+                {{ pokemon.name | capitalize}}
+            </li>
+        {% endfor %}
     </ul>
+
+    <div class="pagination">
+        <ul class="pagination">
+            {% if page > 1 %}
+                <li><a href="{{ url_for('list_of_pokemon', page=page-1) }}">Previous</a></li>
+            {% endif %}
+        
+            {% for p in range(1, total_pages+1) %}
+                <li{% if p == page %} class="active"{% endif %}><a href="{{ url_for('list_of_pokemon', page=p) }}">{{ p }}</a></li>
+            {% endfor %}
+        
+            {% if page < total_pages %}
+                <li><a href="{{ url_for('list_of_pokemon', page=page+1) }}">Next</a></li>
+            {% endif %}
+        </ul>
+        
+    </div>
 </body>
 
 {% endblock %}

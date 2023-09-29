@@ -7,20 +7,25 @@
     </div>
     <div>
         <h1 class="headerOne">Pokemon Roulette</h1>
-        <p class="headerP">Welcome to Pokemon Roulette! The app where you can collect your favorite Pokemon at Random!</p>
+        <p class="headerP">Welcome to Pokemon Roulette! The app where you can collect your favorite Pokemon at random!</p>
+        <img src="https://i.pinimg.com/originals/92/37/6c/92376cd31daa2b778d0c8c972f4ff15e.png" alt="Pikachu" width="400">
     </div>
 </div>
 
 <div id="roulette">
     <h2>Randomly Geneated Pokemon</h2>
-    <img src="{{ random_pokemon ['sprites']['other']['official-artwork']['front_default'] }}" alt="Pokemon Artwork">
-    <p class="pokemon-name">You got a: <span id="pokemon-name">{{ random_pokemon['name'] }}</span></p>
-    <button id="catch-button"><iconify-icon icon="mdi:pokeball"></iconify-icon></button>
-    <button id="generate-pokemon">Spin</button>
+    <!-- <img src="{{ random_pokemon ['sprites']['other']['official-artwork']['front_default'] }}" alt="Pokemon Artwork"> -->
+    <img src="{{ random_pokemon['sprites']['front_default'] }}" alt="Pokemon Sprite" class="bigger-sprite">
+    <p class="pokemon-name">You got a: <span id="pokemon-name">{{ random_pokemon['name'] | capitalize }}</span></p>
+<!-- <div id="shiny-message" style="display: none;">
+    <p>Congratulations! You found a shiny Pokémon!</p>
+</div> -->
+    <button id="catch-button"  class="btn btn-primary" data-sprite-url="{{ sprite_url }}"><iconify-icon icon="mdi:pokeball"></iconify-icon></button>
+    <button id="generate-pokemon" class="btn btn-success">Spin</button>
 </div>
 
 <div id="contact">
-    <h2 class="header2">Which is your favorite?</h2>
+    <h2 class="header2">Which Starter Pokemon is your favorite?</h2>
     <p>Pick your favorite pokemon.</p>
     <select>
         <option selected disabled>Select One</option>

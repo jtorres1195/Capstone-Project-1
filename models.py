@@ -3,7 +3,7 @@
 from datetime import datetime
 
 from flask_sqlalchemy import SQLAlchemy
-from app import db
+db = SQLAlchemy()
 
 class Pokemon(db.Model):
     pokemon_id = db.Column(db.Integer, primary_key=True)
@@ -43,6 +43,3 @@ class CapturedPokemon(db.Model):
     captured_pokemon_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
     pokemon_name = db.Column(db.String(100), nullable=False)
-
-from app import db as app_db
-db.init_app(app_db)
